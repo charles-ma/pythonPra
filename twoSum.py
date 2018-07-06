@@ -4,6 +4,7 @@ Given an array of nums, return indices of two elements that sum to target. Guara
 
 import unittest
 
+# Solution
 def twoSum(array, target):
     if array:
         hash = {}
