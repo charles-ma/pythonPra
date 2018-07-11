@@ -9,7 +9,7 @@ Code is tested using Python 2.7.10. Each of the file contains problem descriptio
 
 ## Python Note
 
-### List Comprehension
+### List Comprehension:
 
 ### Decorator:
 1. Decorators are functions that will return a new function
@@ -23,4 +23,7 @@ Code is tested using Python 2.7.10. Each of the file contains problem descriptio
 1. Global, nonlocal and local(nonlocal was added in python 3)
 
 ### Closure:
+
+### Generator:
+
 
