@@ -50,4 +50,3 @@ def myPrint(x):
     return "<html>" + x + "</html>"
 
 myPrint()
-
