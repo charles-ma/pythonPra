@@ -35,7 +35,6 @@ def mySimpleFunc():
 
 mySimpleFunc()    
 
-
 # Decorator with arguments
 def myDec(x, y):
     def newFun(func):
@@ -51,5 +50,4 @@ def myPrint(x):
     return "<html>" + x + "</html>"
 
 myPrint()
-
 
