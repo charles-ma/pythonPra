@@ -1,7 +1,7 @@
 # Sample utilities
 topicCounts = 0
-def topicCount(func):
-    '''Print out topic index and summary(docstring)'''
+def newTopic(func):
+    '''Form a new topic, print out topic index and summary(docstring)'''
     def f():
         global topicCounts
         topicCounts += 1
@@ -12,7 +12,7 @@ def topicCount(func):
     return f
 
 # Some testing about try except block
-@topicCount
+@newTopic
 def tryExceptTest():
     '''# Some testing about try except block'''
     try: 
@@ -31,7 +31,7 @@ tryExceptTest()
 
 
 # Context management protocol
-@topicCount
+@newTopic
 def contextMgmtTest():
     '''# Context management protocol'''
     try:
@@ -44,7 +44,7 @@ def contextMgmtTest():
 contextMgmtTest()        
 
 # Assertion related
-@topicCount
+@newTopic
 def assertionTest():
     '''# Assertion related'''
     assert 1 == 1
@@ -52,7 +52,7 @@ def assertionTest():
 assertionTest()    
 
 # Simple decorator
-@topicCount
+@newTopic
 def simpleDecTest():
     '''# Simple decorator'''
     def simpleDec(func):
@@ -70,7 +70,7 @@ def simpleDecTest():
 simpleDecTest()
 
 # Decorator with arguments
-@topicCount
+@newTopic
 def decWithArgTest():
     '''# Decorator with arguments'''
     def myDec(x, y):
@@ -92,7 +92,7 @@ decWithArgTest()
 
 # Generator
 # Simple Generator
-@topicCount
+@newTopic
 def simpleGenTest():
     '''# Simple Generator'''
     def myGen():
@@ -105,15 +105,19 @@ def simpleGenTest():
 simpleGenTest()
 
 # Random Selector -- Generator
-@topicCount
+@newTopic
 def randomSelectTest():
     '''# Random Selector -- Generator'''
-    from random import randint
+    # import module using import clause
+    # from random import randint
 
+    # import module using __import__ function
+    rand = __import__("random")
+    
     def randomSelect(aList):
         while len(aList) > 0:
             # randint params are inclusive!!!
-            yield aList.pop(randint(0, len(aList) - 1))
+            yield aList.pop(rand.randint(0, len(aList) - 1))
 
     for e in randomSelect([1, 2, 3, 4, 5]):
         print e
@@ -121,7 +125,7 @@ def randomSelectTest():
 randomSelectTest()        
 
 # Counter -- Generator
-@topicCount
+@newTopic
 def counterTest():
     '''# Counter -- Generator'''
     def myCounter():
@@ -151,13 +155,38 @@ def counterTest():
 counterTest()
 
 # Namespace
-@topicCount
+@newTopic
 def namespaceTest():
     '''# Namespace'''
-    class myClass(object):
+    class MyClass(object):
         pass
-    myInstance = myClass()
+    myInstance = MyClass()
     myInstance.x = 1
     print myInstance.x
 
 namespaceTest()
+
+# Class
+@newTopic
+def classTest():
+    '''# Class'''
+    class TestClass():
+        # self can be renamed to something else
+        def __init__(self, a):
+            self.a = a
+        
+        def myPrint(self):
+            print self.a
+
+    testClass = TestClass("Hello Class!")
+    # self passed in implicitly 
+    testClass.myPrint()
+    # self passed in explicitly
+    TestClass.myPrint(testClass)
+
+    print dir(TestClass)
+    print TestClass.__dict__
+
+
+
+classTest()

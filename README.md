@@ -26,4 +26,11 @@ Code is tested using Python 2.7.10. Each of the file contains problem descriptio
 
 ### Generator:
 
+### Inheritance:
+1. Python supports multiple inheritance
+2. New style class has an ancestor - object. Classic class doesn't. Recommend using new style class
+3. Instance methods take in self, but can be renamed to something else
+4. __init__ will be called during instantiation
+
+
 
