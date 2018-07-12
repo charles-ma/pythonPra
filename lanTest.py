@@ -119,3 +119,32 @@ def randomSelectTest():
         print e
 
 randomSelectTest()        
+
+# Counter -- Generator
+@topicCount
+def counterTest():
+    '''# Counter -- Generator'''
+    def myCounter():
+        count = 0
+        while(True):
+            val = yield count
+            if val is not None:
+                count = val
+            else:
+                count += 1
+    counter = myCounter()
+    print counter.next()
+    print counter.next()
+    print counter.send(100)
+    print counter.next()
+    print counter.send(5)
+    print counter.next()
+    print counter.close()
+    # print counter.next()
+    try: 
+        print counter.next()
+    except SyntaxError as e: 
+        print e
+
+counterTest()    
+
