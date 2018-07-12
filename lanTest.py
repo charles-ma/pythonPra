@@ -141,10 +141,23 @@ def counterTest():
     print counter.next()
     print counter.close()
     # print counter.next()
+    '''
     try: 
         print counter.next()
     except SyntaxError as e: 
         print e
+    '''
 
-counterTest()    
+counterTest()
 
+# Namespace
+@topicCount
+def namespaceTest():
+    '''# Namespace'''
+    class myClass(object):
+        pass
+    myInstance = myClass()
+    myInstance.x = 1
+    print myInstance.x
+
+namespaceTest()
