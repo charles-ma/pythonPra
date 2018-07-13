@@ -178,15 +178,28 @@ def classTest():
         def myPrint(self):
             print self.a
 
+        @classmethod
+        def myClassMethod(cla):
+            print cla.__name__
+
+        @staticmethod
+        def myStaticMethod():
+            print "static method called"
+
     testClass = TestClass("Hello Class!")
     # self passed in implicitly 
     testClass.myPrint()
     # self passed in explicitly
     TestClass.myPrint(testClass)
 
+    # Class method
+    TestClass.myClassMethod()
+    testClass.myClassMethod()
+
+    # Static method
+    TestClass.myStaticMethod()
+
     print dir(TestClass)
     print TestClass.__dict__
-
-
 
 classTest()
